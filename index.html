@@ -13,7 +13,7 @@
 		</div>
 		<div id="container">
 			<div id="bar">
-				<input id="searchBar" placeholder="filter" onkeyup="document.getElementById('filter').click()"/>
+				<input id="searchBar" placeholder="filter" data-bind="click: filterMarkers" onkeyup="document.getElementById('filter').click()"/>
 				<button id="filter" data-bind="click: filterMarkers">Filter</button>
 				<button id="newSearch" data-bind="click: newSearch">Search</button>
 			</div>
