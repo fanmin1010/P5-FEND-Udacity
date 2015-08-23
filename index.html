@@ -2,8 +2,10 @@
 <html>
 	<head>
 		<title>Neighborhood Map APP</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 		<link type="text/css" rel="stylesheet" href="css/main.css">
+		<link type="text/css" rel="stylesheet" href="css/media.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	</head>
 	<body>
@@ -24,12 +26,12 @@
 			</div>
 			<div style="display: none">
 				<div id="placeTmpl" data-bind="with: currentBus">
-					<div>
+					<div class="headerbar">
 						<div id='header'>
 							<h3><a data-bind="text: name, attr: {'href': url}"></a></h3><br/>
 							<div>
 								<img  id="rateImg" src="#" alt="rating" data-bind="attr:{src: rating_img_url}">
-								<span data-bind="text: review_count"></span><span>reviews</span>
+								<span class="contText" data-bind="text: review_count"></span><span>reviews</span>
 							</div>
 						</div>
 						<div id='mainlogo'>
@@ -39,15 +41,15 @@
 					<div style="clear: both"></div>
 					<div id="yelpReview">
 						<img id="selReview" src="#" alt="reviewer" data-bind="attr: {src: snippet_image_url}">
-						<div id="reviewCon" data-bind="text: snippet_text"></div>
+						<span class="contText" data-bind="text: snippet_text"></span>
 					</div>
 					<hr/>
 					<div id="nytArticle" data-bind="with: nyt">
 						<div id="nytContent">
 							<div>
-								<a data-bind="text: headline, attr: {href: url}"></a>
+								<a class="contText" data-bind="text: headline, attr: {href: url}"></a>
 							</div>
-							<div data-bind="text: para"></div>
+							<div class="contText" data-bind="text: para"></div>
 						</div>
 						<div id="nytlogo">
 							<img src = "images/nytlogo.png" alt="nytLogo">
@@ -73,22 +75,22 @@
 		<script src="js/app/viewModel.js"></script>
 		<script type="text/javascript">
 			// add functionality to hamburger button
-			// when clicked first check, then set visibility of lists
+			// when clicked first check, then set display of lists
 			document.getElementById('hamBtn').addEventListener('click', function(){
-				// first get current visibility value
-				var visibility = $('#yelpBusinesses').css('visibility');
-				if(visibility === 'visible'){
+				// first get current display value
+				var display = $('#yelpBusinesses').css('display');
+				if(display === 'block'){
 					$('#hamBtn').html('<i class="fa fa-bars"></i>');
-					$('#yelpBusinesses').css('visibility', 'hidden');
+					$('#yelpBusinesses').css('display', 'none');
 				}
 				else {
 					$('#hamBtn').html('<i class="fa fa-times"></i>');
-					$('#yelpBusinesses').css('visibility', 'visible');
+					$('#yelpBusinesses').css('display', 'block');
 				}
 			});
 			document.getElementById('googleMap').addEventListener('click', function(){
 				$('#hamBtn').html('<i class="fa fa-bars"></i>');
-				$('#yelpBusinesses').css('visibility', 'hidden');
+				$('#yelpBusinesses').css('display', 'none');
 			});
 		</script>
 

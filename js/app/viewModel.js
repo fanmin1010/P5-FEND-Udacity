@@ -30,7 +30,7 @@ var viewModel = function() {
 	self.setCurrent = function() {
 		// onclick of list, hide the list view of yelpBusinesses
 		$('#hamBtn').html('<i class="fa fa-bars"></i>');
-		$('#yelpBusinesses').css('visibility', 'hidden');
+		$('#yelpBusinesses').css('display', 'none');
 
 		// onclick clear all mark animations and set current one
 		for(var j=0; j<self.markerList.length; j++){
@@ -58,9 +58,9 @@ var viewModel = function() {
 	};
 	// filterMarkers func filters markers based on input
 	self.filterMarkers = function(){
-		// on filter, make list-view of yelpBusinesses visible
+		// on filter, make list-view of yelpBusinesses block
 		$('#hamBtn').html('<i class="fa fa-times"></i>');
-		$('#yelpBusinesses').css('visibility', 'visible');
+		$('#yelpBusinesses').css('display', 'block');
 
 		var filterStr = $('#searchBar').val();
 		self.businesses().forEach(function(elem, i){
