@@ -28,6 +28,16 @@ var viewModel = function() {
 	callYelp('new york washington square park', '', addToBusinesses);
 	// when business is clicked, update currentBus
 	self.setCurrent = function() {
+		// onclick of list, hide the list view of yelpBusinesses
+		$('#hamBtn').html('<i class="fa fa-bars"></i>');
+		$('#yelpBusinesses').css('visibility', 'hidden');
+
+		// onclick clear all mark animations and set current one
+		for(var j=0; j<self.markerList.length; j++){
+			self.markerList[j].setAnimation(null);
+		}
+		self.markerList[this.index].setAnimation(google.maps.Animation.BOUNCE);
+
 		// pass this object to set currentBus observable
 		self.currentBus(this);
 
@@ -48,6 +58,10 @@ var viewModel = function() {
 	};
 	// filterMarkers func filters markers based on input
 	self.filterMarkers = function(){
+		// on filter, make list-view of yelpBusinesses visible
+		$('#hamBtn').html('<i class="fa fa-times"></i>');
+		$('#yelpBusinesses').css('visibility', 'visible');
+
 		var filterStr = $('#searchBar').val();
 		self.businesses().forEach(function(elem, i){
 			// string to filter within

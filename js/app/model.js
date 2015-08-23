@@ -35,7 +35,7 @@ var business = function(data, index) {
 	if(data.hasOwnProperty('snippet_text'))
 		this.snippet_text = data.snippet_text;
 	else
-		this.snippet_text = 'No yelp review is available. :('
+		this.snippet_text = 'No yelp review is available. :(';
 
 };
 /* string fitler function: if any words in string1 could
