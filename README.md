@@ -1,4 +1,4 @@
-# P5-FEND-Udacity
+# Neighborhood Map Web-App
 
 This is a Neighborhood Map Web App. Open index.html in a browser, it will then load a local google map of Greenwich Village of New York City.
 
